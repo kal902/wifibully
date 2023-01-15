@@ -14,7 +14,9 @@ class datamanager:
         self.data_files_dir = "data"
         self.setting_data_file = os.path.join(self.data_files_dir,"setting.dat")
         self.devices_data_file = os.path.join(self.data_files_dir,"devices.dat")
-        # assume files are not initialized if folder doesnt exist
+        
+        
+        # check for data files
         if not os.path.exists(self.data_files_dir):
             os.mkdir(self.data_files_dir)
 
@@ -23,15 +25,25 @@ class datamanager:
 
         if not os.path.exists(self.devices_data_file):
             self.init_devices_data()
+        
+        # refresh settings (my_ip)
+        setting = self.get_settings()
+        setting.my_ip = self.scannet.get_my_ip()
+        setting.my_mac = self.get_my_mac()
+        
+        self.save_settings(setting)
             
     
     def init_settings(self):
         # init setting data file with default settings
         logging.info('initializing setting')
+        
         setting = self.default_setting()
+        
         settingfile = open(self.setting_data_file, 'wb')
         pickle.dump(setting, settingfile)
         settingfile.close()
+        
         logging.info('setting initialization finished')
 
     def init_devices_data(self):
@@ -81,15 +93,19 @@ class datamanager:
         
     def default_setting(self):
         setting = settings.settings()
+        
         setting.my_ip = self.scannet.get_my_ip()
         setting.poision_gateway = False
         setting.gateway_ip = "192.168.1.1"
         setting.gateway_mac = 'n/a'
-        setting.this_pc_mac = ':'.join(['{:02x}'.format((uuid.getnode() >> ele) & 0xff)for ele in range(0,8*6,8)][::-1])
+        setting.this_pc_mac = self.get_my_mac()
         setting.time_interval = 5
         setting.hwsrc = 'n/a' # "hwsrc" value for the 'is-at' arp pkt
 
         return setting
+    
+    def get_my_mac(self):
+    	return ':'.join(['{:02x}'.format((uuid.getnode() >> ele) & 0xff)for ele in range(0,8*6,8)][::-1])
 
 
         

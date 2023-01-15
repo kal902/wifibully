@@ -1,0 +1,79 @@
+2023-01-15 11:26:52,298 building gui
+2023-01-15 11:26:52,397 building gui finished
+2023-01-15 11:26:54,296 starting network mapper process
+2023-01-15 11:27:28,916 Raw MAC found: None
+2023-01-15 11:27:29,021 Raw MAC found: f0:c4:2f:5a:eb:01
+2023-01-15 11:27:29,334 no devicename found for n/a
+2023-01-15 11:27:29,335 no devicename found for n/a
+2023-01-15 11:28:00,759 starting network mapper process
+2023-01-15 11:28:18,267 Raw MAC found: f0:c4:2f:5a:eb:01
+2023-01-15 11:28:33,063 Raw MAC found: None
+2023-01-15 11:28:33,112 no devicename found for n/a
+2023-01-15 11:28:33,116 no devicename found for n/a
+2023-01-15 11:28:42,166 starting network mapper process
+2023-01-15 11:28:53,030 Raw MAC found: b8:bc:5b:f7:f6:8c
+2023-01-15 11:28:53,034 Raw MAC found: 00:eb:14:e2:0a:2b
+2023-01-15 11:29:06,039 Raw MAC found: None
+2023-01-15 11:29:06,041 Raw MAC found: 4c:6e:6e:fa:72:4b
+2023-01-15 11:29:06,050 no devicename found for n/a
+2023-01-15 11:29:06,058 no devicename found for n/a
+2023-01-15 11:29:43,484 starting network mapper process
+2023-01-15 11:29:53,417 Raw MAC found: 4c:6e:6e:fa:72:4b
+2023-01-15 11:29:53,418 Raw MAC found: b8:bc:5b:f7:f6:8c
+2023-01-15 11:29:53,421 Raw MAC found: 00:eb:14:e2:0a:2b
+2023-01-15 11:30:09,879 Raw MAC found: None
+2023-01-15 11:30:09,888 no devicename found for n/a
+2023-01-15 11:30:09,896 no devicename found for n/a
+2023-01-15 11:33:07,691 starting network mapper process
+2023-01-15 11:33:15,663 Raw MAC found: 00:eb:14:e2:0a:2b
+2023-01-15 11:33:15,664 Raw MAC found: b8:bc:5b:f7:f6:8c
+2023-01-15 11:33:15,665 Raw MAC found: 4c:6e:6e:fa:72:4b
+2023-01-15 11:33:21,307 Raw MAC found: None
+2023-01-15 11:33:21,309 Raw MAC found: 74:c1:7d:bb:ad:9c
+2023-01-15 11:33:21,336 no devicename found for n/a
+2023-01-15 11:33:21,359 no devicename found for n/a
+2023-01-15 11:33:21,360 no devicename found for n/a
+2023-01-15 11:48:09,303 building gui
+2023-01-15 11:48:09,378 building gui finished
+2023-01-15 12:27:11,456 building gui
+2023-01-15 12:27:11,507 building gui finished
+2023-01-15 12:29:53,923 building gui
+2023-01-15 12:29:53,961 building gui finished
+2023-01-15 12:29:55,920 starting network mapper process
+2023-01-15 12:30:22,893 Raw MAC found: cc:3a:61:95:7e:57
+2023-01-15 12:30:45,335 Raw MAC found: None
+2023-01-15 12:30:45,337 Raw MAC found: 4c:6e:6e:fa:72:4b
+2023-01-15 12:30:45,848 no devicename found for n/a
+2023-01-15 12:30:45,897 no devicename found for n/a
+2023-01-15 12:44:17,719 building gui
+2023-01-15 12:44:18,547 building gui finished
+2023-01-15 12:44:25,481 starting network mapper process
+2023-01-15 12:44:41,428 Raw MAC found: cc:3a:61:95:7e:57
+2023-01-15 12:44:50,883 Raw MAC found: None
+2023-01-15 12:44:50,885 Raw MAC found: 4c:6e:6e:fa:72:4b
+2023-01-15 12:44:50,911 no devicename found for n/a
+2023-01-15 12:44:50,913 no devicename found for n/a
+2023-01-15 12:44:56,006 starting arp poision on 192.168.1.11
+2023-01-15 12:44:56,007 starting arp poision
+2023-01-15 12:52:35,289 building gui
+2023-01-15 12:52:35,832 building gui finished
+2023-01-15 12:52:37,838 starting network mapper process
+2023-01-15 12:52:50,399 Raw MAC found: 4c:6e:6e:fa:72:4b
+2023-01-15 12:52:50,401 Raw MAC found: cc:3a:61:95:7e:57
+2023-01-15 12:52:53,791 Raw MAC found: None
+2023-01-15 12:52:53,804 no devicename found for n/a
+2023-01-15 12:52:59,190 starting arp poision on 192.168.1.11
+2023-01-15 12:52:59,191 starting arp poision
+2023-01-15 12:52:59,191 sending packets with 1sec interval.
+2023-01-15 12:53:55,605 building gui
+2023-01-15 12:53:55,667 building gui finished
+2023-01-15 12:53:56,777 starting network mapper process
+2023-01-15 12:54:10,191 Raw MAC found: 4c:6e:6e:fa:72:4b
+2023-01-15 12:54:26,467 Raw MAC found: None
+2023-01-15 12:54:26,471 Raw MAC found: cc:3a:61:95:7e:57
+2023-01-15 12:54:26,481 no devicename found for n/a
+2023-01-15 12:54:26,482 no devicename found for n/a
+2023-01-15 12:54:30,215 starting arp poision on 192.168.1.11
+2023-01-15 12:54:30,216 starting arp poision
+2023-01-15 12:54:30,216 sending packets with 1sec interval.
+2023-01-15 12:54:52,071 arp poision stoped

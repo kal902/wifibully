@@ -3,7 +3,7 @@ from tkinter import ttk
 from tkinter import scrolledtext
 from tkinter import simpledialog
 
-from arp_spoof import arpspoof
+from arppoision import ArpPoision
 from settings import settings
 from scannetwork import netscanner
 
@@ -30,6 +30,7 @@ class gui:
 
 
     def save_device(self):
+        
         # get selected device name
         for index in self.selection:
             check = self.selection[index]
@@ -47,19 +48,34 @@ class gui:
 
     # start arp poisioning on selected devices
     def start_poision(self):
+        arp = ArpPoision(self.savedsettings)
+
+        should_start = False
         for index in self.selection:
-            # is checkbox/device selected
+            # is checkbox/device selected?
             check = self.selection[index]
             if check.get() == 1:
                 selected_device = self.devices[index] # returns tuple (ip, mac)
                 ip = selected_device[0]
                 mac = selected_device[1]
 
-                # start arp poisioning thread for this device
-                arp = arpspoof(self.savedsettings, ip, mac)
-                arp.start()
-                logging.info(f'arp poision started on {ip}')
-        
+                arp.add(ip, mac)
+                should_start = True
+                logging.info(f'starting arp poision on {ip}')
+
+        if should_start:
+            arp.start()
+            self.arp = arp
+
+            self.btn_start.configure(state=tk.DISABLED)
+            self.btn_stop.configure(state=tk.NORMAL)
+
+    def stop_poision(self):
+        self.arp.stop()
+
+        self.btn_start.configure(state=tk.NORMAL) # enable start button
+        self.btn_stop.configure(state=tk.DISABLED)
+        print('arp poision stoped')
 
     def save_settings(self):
         poisiongateway = self.poisiongateway.get()
@@ -89,7 +105,7 @@ class gui:
         self.reload_setting_ui() # reconstruct information fields with new data
 
     def scan(self):
-        self.btn_scan.configure(state='disabled') # disable scan button
+        self.btn_scan.configure(state=tk.DISABLED) # disable scan button
         self.status_label.configure(text='scanning network')
 
         scanner = netscanner()
@@ -111,11 +127,13 @@ class gui:
         self.devices = devices
 
         saved_devices = self.data_mgr.get_devices()
-
+        # clear recent device list
+        self.scroll.delete('1.0', tk.END)
+        self.selection.clear()
         # construct list of wifi clients with checkbox in the scrolledText
         iter = 0
         for ip, mac in self.devices:
-            # a frame for each row, holding the three fields (ip, mac, devicename) and the checkbox
+            # frame for a row, holding the three fields (ip, mac, devicename) and the checkbox
             row_frame = ttk.Frame(self.scroll)
             row_frame.grid(column=0, row=iter)
 
@@ -146,7 +164,7 @@ class gui:
 
             iter += 1
         
-        self.btn_scan.configure(state='enabled')
+        self.btn_scan.configure(state=tk.NORMAL)
         self.status_label.configure(text='scanning finished')
 
     def build_gui(self):
@@ -168,12 +186,15 @@ class gui:
 
         self.btn_save = ttk.Button(ctrl_btn_frame, text='save', command=self.save_device)
         self.btn_save.grid(column=0,row=1, pady=5)
-
+        
         self.btn_start = ttk.Button(ctrl_btn_frame, text='start', command=self.start_poision)
         self.btn_start.grid(column=0,row=2, pady=5, sticky=tk.S)
 
+        self.btn_stop = ttk.Button(ctrl_btn_frame, text='stop', command=self.stop_poision, state=tk.DISABLED)
+        self.btn_stop.grid(column=0,row=3, pady=5, sticky=tk.S)
+
         self.status_label = tk.Label(ctrl_btn_frame)
-        self.status_label.grid(column=0,row=3, pady=10)
+        self.status_label.grid(column=0,row=4, pady=10)
         ### setting frame (right frame) ###
 
         main_right_frame = ttk.Frame(self.root)
